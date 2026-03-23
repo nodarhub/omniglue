@@ -1,7 +1,7 @@
 matplotlib
 numpy
-opencv-python
+opencv-contrib-python
 Pillow
-tensorflow
+tensorflow[and-cuda]
 torch
 gdown

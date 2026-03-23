@@ -23,6 +23,7 @@ import numpy as np
 import omniglue
 from omniglue import utils
 from PIL import Image
+from pathlib import Path
 
 
 def main(argv) -> None:
@@ -43,10 +44,12 @@ def main(argv) -> None:
   # Load models.
   print("> Loading OmniGlue (and its submodules: SuperPoint & DINOv2)...")
   start = time.time()
+  model_path = Path(omniglue.__path__[0]) / ".." / ".." / "models"
+  model_path = model_path.resolve()
   og = omniglue.OmniGlue(
-      og_export="./models/og_export",
-      sp_export="./models/sp_v6",
-      dino_export="./models/dinov2_vitb14_pretrain.pth",
+      og_export=str(model_path / "og_export"),
+      sp_export=str(model_path /"sp_v6"),
+      dino_export=str(model_path / "dinov2_vitb14_pretrain.pth"),
   )
   print(f"> \tTook {time.time() - start} seconds.")
 
