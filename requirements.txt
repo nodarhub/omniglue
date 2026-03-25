@@ -3,5 +3,5 @@ numpy
 opencv-contrib-python
 Pillow
 tensorflow[and-cuda]
-torch
+torch==2.7.0
 gdown
