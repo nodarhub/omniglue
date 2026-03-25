@@ -26,7 +26,7 @@ class DINOExtract:
   """Class to initialize DINO model and extract features from an image."""
 
   def __init__(self, cpt_path: str, feature_layer: int = 1):
-    self.device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
+    self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     self.feature_layer = feature_layer
     self.model = dino.vit_base()
     state_dict_raw = torch.load(cpt_path, map_location='cpu')
